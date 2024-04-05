@@ -6,7 +6,7 @@ Also known as: ***Event-Subscriber, Listener***
 
 __Observer__ is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
 
-![](C:\Users\hp\Documents\Devloppements\PatternDesign\Observer\src\main\resources\assets\observer-2x.png)
+![](/src/main/resources/assets/observer-2x.png)
 
 ## Problem 
 
@@ -14,7 +14,7 @@ Imagine that you have two types of objects: a `Customer` and a `Store`. The cust
 
 The customer could visit the store every day and check product availability. But while the product is still en route, most of these trips would be pointless.
 
-![Visiting the store vs. sending spam](C:\Users\hp\Documents\Devloppements\PatternDesign\Observer\src\main\resources\assets\observer-comic-1-en-2x.png)
+![Visiting the store vs. sending spam](src/main/resources/assets/observer-comic-1-en-2x.png)
 
 On the other hand, the store could send tons of emails (which might be considered spam) to all customers each time a new product becomes available. This would save some customers from endless trips to the store. At the same time, it’d upset other customers who aren’t interested in new products.
 
@@ -27,21 +27,21 @@ The Observer pattern suggests that you add a subscription mechanism to the publi
 1. an array field for storing a list of references to subscriber objects and 
 2. several public methods which allow adding subscribers to and removing them from that list.
 
-![Visiting the store vs. sending spam](C:\Users\hp\Documents\Devloppements\PatternDesign\Observer\src\main\resources\assets\solution1-en-2x.png)
+![Visiting the store vs. sending spam](src/main/resources/assets/solution1-en-2x.png)
 Now, whenever an important event happens to the publisher, it goes over its subscribers and calls the specific notification method on their objects.
 
 Real apps might have dozens of different subscriber classes that are interested in tracking events of the same publisher class. You wouldn’t want to couple the publisher to all of those classes. Besides, you might not even know about some of them beforehand if your publisher class is supposed to be used by other people.
 
 That’s why it’s crucial that all subscribers implement the same interface and that the publisher communicates with them only via that interface. This interface should declare the notification method along with a set of parameters that the publisher can use to pass some contextual data along with the notification.
 
-![Visiting the store vs. sending spam](C:\Users\hp\Documents\Devloppements\PatternDesign\Observer\src\main\resources\assets\solution2-en-2x.png)
+![Visiting the store vs. sending spam](src/main/resources/assets/solution2-en-2x.png)
 
 If your app has several different types of publishers and you want to make your subscribers compatible with all of them, you can go even further and make all publishers follow the same interface. This interface would only need to describe a few subscription methods. The interface would allow subscribers to observe publishers’ states without coupling to their concrete classes.
 
 #  # Pseudocode
 In this example, the __Observer__` pattern lets the text editor object notify other service objects about changes in its state.
 
-![Visiting the store vs. sending spam](C:\Users\hp\Documents\Devloppements\PatternDesign\Observer\src\main\resources\assets\example-2x.png)
+![Visiting the store vs. sending spam](src/main/resources/assets/example-2x.png)
 
 # Example
 
